@@ -34,9 +34,9 @@ export default function MapFilters({ reports }: MapFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(true)
 
   // Get unique values from reports
-  const uniqueCategories = [...new Set(reports.map(r => r.metadata?.category).filter(Boolean))] as IssueCategory[]
-  const uniqueStatuses = [...new Set(reports.map(r => r.metadata?.status).filter(Boolean))] as IssueStatus[]
-  const uniquePriorities = [...new Set(reports.map(r => r.metadata?.priority).filter(Boolean))] as IssuePriority[]
+  const uniqueCategories = Array.from(new Set(reports.map(r => r.metadata?.category).filter(Boolean))) as IssueCategory[]
+  const uniqueStatuses = Array.from(new Set(reports.map(r => r.metadata?.status).filter(Boolean))) as IssueStatus[]
+  const uniquePriorities = Array.from(new Set(reports.map(r => r.metadata?.priority).filter(Boolean))) as IssuePriority[]
 
   const handleCategoryToggle = (category: IssueCategory) => {
     setFilters(prev => ({

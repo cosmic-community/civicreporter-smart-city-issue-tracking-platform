@@ -167,7 +167,7 @@ export default function AdminDashboard({ reports, analytics }: AdminDashboardPro
                         <span>Reporter: {report.metadata.reporter_email}</span>
                       )}
                       {report.metadata?.department && (
-                        <span>Dept: {report.metadata.department}</span>
+                        <span>Dept: {typeof report.metadata.department === 'string' ? report.metadata.department : 'Unknown'}</span>
                       )}
                     </div>
                   </div>

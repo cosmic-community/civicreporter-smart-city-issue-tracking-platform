@@ -70,8 +70,16 @@ function CustomMarker({ marker }: { marker: MapMarker }) {
 
 export default function MapView({ markers }: MapViewProps) {
   useEffect(() => {
-    // Import Leaflet CSS dynamically
-    import('leaflet/dist/leaflet.css')
+    // Dynamically load Leaflet CSS to avoid SSR issues
+    const loadLeafletCSS = async () => {
+      try {
+        await import('leaflet/dist/leaflet.css')
+      } catch (error) {
+        console.error('Failed to load Leaflet CSS:', error)
+      }
+    }
+    
+    loadLeafletCSS()
   }, [])
 
   // Default center (can be adjusted based on your city)

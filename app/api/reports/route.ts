@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { cosmic } from '@/lib/cosmic'
 import { getDepartmentByCategory, calculatePriority } from '@/lib/utils'
-import { IssueCategory, IssuePriority } from '@/types'
+import { IssueCategory, IssuePriority, IssueReport } from '@/types'
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -139,7 +139,7 @@ export async function GET() {
       .props(['id', 'title', 'slug', 'metadata', 'created_at', 'modified_at'])
       .depth(1)
 
-    const reports = response.objects.sort((a, b) => {
+    const reports = (response.objects as IssueReport[]).sort((a: IssueReport, b: IssueReport) => {
       const dateA = new Date(a.created_at).getTime()
       const dateB = new Date(b.created_at).getTime()
       return dateB - dateA // Newest first

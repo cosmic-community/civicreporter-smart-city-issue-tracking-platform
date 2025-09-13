@@ -127,6 +127,7 @@ export interface MapMarker {
   id: string;
   position: [number, number];
   title: string;
+  description?: string; // Added optional description property
   category: IssueCategory;
   status: IssueStatus;
   priority: IssuePriority;
