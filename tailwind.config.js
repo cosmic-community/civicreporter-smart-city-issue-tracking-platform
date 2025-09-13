@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: 'hsl(214.3 31.8% 91.4%)', // Define the border color
+        border: 'hsl(214.3 31.8% 91.4%)', // Keep the border color definition
         primary: {
           DEFAULT: '#2563eb',
           50: '#eff6ff',
@@ -51,6 +51,10 @@ module.exports = {
       boxShadow: {
         'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
         'card-hover': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+      },
+      // Add border utilities explicitly
+      borderColor: {
+        'border': 'hsl(214.3 31.8% 91.4%)',
       }
     },
   },
