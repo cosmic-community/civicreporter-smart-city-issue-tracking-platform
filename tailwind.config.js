@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        border: 'hsl(214.3 31.8% 91.4%)', // Define the border color
         primary: {
           DEFAULT: '#2563eb',
           50: '#eff6ff',
