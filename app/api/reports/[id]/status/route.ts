@@ -4,8 +4,6 @@ import { cosmic } from '@/lib/cosmic'
 import { IssueStatus, isValidIssueStatus } from '@/types'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -72,6 +70,9 @@ export async function PUT(
 
     if (reporterEmail && process.env.RESEND_API_KEY) {
       try {
+        // Initialize Resend client only when needed and API key is available
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        
         const statusMessages = {
           reported: 'Your report has been received',
           acknowledged: 'Your report has been acknowledged by city staff',
