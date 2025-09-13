@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-700 shadow-sm;
+    @apply h-10 px-4 py-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-600 hover:bg-secondary-200;
+    @apply h-10 px-4 py-2;
+  }
+  
+  .btn-success {
+    @apply bg-success text-white hover:bg-success-600;
+    @apply h-10 px-4 py-2;
+  }
+  
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-danger-600;
+    @apply h-10 px-4 py-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-card border border-gray-200;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover transition-shadow duration-200;
+  }
+  
+  .input {
+    @apply flex w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .textarea {
+    @apply flex min-h-[80px] w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .select {
+    @apply flex w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-primary-100 text-primary-700;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-700;
+  }
+  
+  .badge-success {
+    @apply bg-success-100 text-success-700;
+  }
+  
+  .badge-warning {
+    @apply bg-warning-100 text-warning-700;
+  }
+  
+  .badge-danger {
+    @apply bg-danger-100 text-danger-700;
+  }
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom map marker styles */
+.custom-map-marker {
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-map-marker.priority-low {
+  border-color: #10b981;
+}
+
+.custom-map-marker.priority-medium {
+  border-color: #f59e0b;
+}
+
+.custom-map-marker.priority-high {
+  border-color: #f97316;
+}
+
+.custom-map-marker.priority-critical {
+  border-color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Status indicator styles */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-reported {
+  background-color: #64748b;
+}
+
+.status-acknowledged {
+  background-color: #3b82f6;
+}
+
+.status-in-progress {
+  background-color: #f59e0b;
+}
+
+.status-resolved {
+  background-color: #10b981;
+}
+
+.status-closed {
+  background-color: #6b7280;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .mobile-full {
+    width: 100%;
+  }
+  
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
