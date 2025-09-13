@@ -69,19 +69,6 @@ function CustomMarker({ marker }: { marker: MapMarker }) {
 }
 
 export default function MapView({ markers }: MapViewProps) {
-  useEffect(() => {
-    // Dynamically load Leaflet CSS to avoid SSR issues
-    const loadLeafletCSS = async () => {
-      try {
-        await import('leaflet/dist/leaflet.css')
-      } catch (error) {
-        console.error('Failed to load Leaflet CSS:', error)
-      }
-    }
-    
-    loadLeafletCSS()
-  }, [])
-
   // Default center (can be adjusted based on your city)
   const defaultCenter: [number, number] = [40.7128, -74.0060] // New York City
   

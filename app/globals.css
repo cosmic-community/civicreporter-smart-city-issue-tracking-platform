@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Leaflet CSS globally to avoid TypeScript module resolution issues */
+@import 'leaflet/dist/leaflet.css';
+
 @layer base {
   html {
     @apply font-sans;
